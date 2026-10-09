@@ -2,6 +2,7 @@ package com.example.saleappv1.Model;
 
 import java.util.List;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Entity
@@ -13,6 +14,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Tên danh mục không được để trống")
     @Column(nullable = false, length = 100)
     private String name;
 

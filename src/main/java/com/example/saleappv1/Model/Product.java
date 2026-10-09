@@ -3,6 +3,8 @@ package com.example.saleappv1.Model;
 import java.math.BigDecimal;
 import java.util.List;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Entity
@@ -14,9 +16,11 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Tên sản phẩm không được để trống")
     @Column(nullable = false, length = 200)
     private String name;
 
+    @NotNull(message = "Giá không được để trống")
     @Column(nullable = false, precision = 12, scale = 2)
     private BigDecimal price;
 
